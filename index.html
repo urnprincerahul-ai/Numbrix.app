@@ -6100,41 +6100,41 @@
         </div>
 
         <!-- Hero Preview Card -->
-        <div class="hero-preview-card">
+        <div class="hero-preview-card" id="hero-live-card">
           <div class="hero-live-badge"><i class="fa-solid fa-circle"></i> LIVE RECEIVER</div>
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-            <div class="country-info">
+            <div class="country-info" id="hero-live-country">
               <span class="flag-icon">🇺🇸</span>
               <span>United States (+1)</span>
             </div>
           </div>
 
-          <div class="phone-number-display">+1 (202) 555-0192</div>
+          <div class="phone-number-display" id="hero-live-phone">+1 (202) 555-0192</div>
           <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
-            Assigned for <strong style="color: var(--accent);">Telegram Verification</strong>
+            Assigned for <strong style="color: var(--accent);" id="hero-live-platform-text">Telegram Verification</strong>
           </div>
 
           <div class="otp-card">
             <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.35rem;">
-              <span><i class="fa-solid fa-message"></i> Telegram Sender</span>
+              <span id="hero-live-sender"><i class="fa-solid fa-message"></i> Telegram Sender</span>
               <span>Just Now</span>
             </div>
             <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; margin: 0.35rem 0;">
-              <div class="otp-code" id="hero-demo-otp" onclick="copyText(this.innerText, 'OTP Code Copied!')" title="Click to copy OTP code">483920</div>
-              <button class="otp-copy-btn" onclick="copyText(document.getElementById('hero-demo-otp')?.innerText || '483920', 'OTP Code Copied!')" title="Copy OTP to Clipboard">
+              <div class="otp-code" id="hero-demo-otp" onclick="handleLiveReceiverCopy()" title="Click to copy OTP code">483920</div>
+              <button class="otp-copy-btn" onclick="handleLiveReceiverCopy()" title="Copy OTP to Clipboard">
                 <i class="fa-solid fa-copy"></i> Copy OTP
               </button>
             </div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;">
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;" id="hero-live-message">
               Your Telegram verification code is <strong style="color: var(--text-main);">483920</strong>.
             </p>
           </div>
 
           <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
-            <button class="btn btn-secondary btn-sm" style="flex: 1;" onclick="copyText(document.getElementById('hero-demo-otp')?.innerText || '483920', 'OTP Copied!')">
+            <button class="btn btn-secondary btn-sm" style="flex: 1;" onclick="handleLiveReceiverCopy()">
               <i class="fa-solid fa-copy"></i> Copy OTP
             </button>
-            <button class="btn btn-outline btn-sm" style="flex: 1;" onclick="speakOtpCode(document.getElementById('hero-demo-otp')?.innerText || '483920', 'Telegram', this)" title="Voice-to-Text Readout (Speech Synthesis)">
+            <button class="btn btn-outline btn-sm" style="flex: 1;" id="hero-live-speak-btn" onclick="speakCurrentLiveOtp(this)" title="Voice-to-Text Readout (Speech Synthesis)">
               <i class="fa-solid fa-volume-high" style="color: #a855f7;"></i> Speak
             </button>
           </div>
@@ -16222,23 +16222,82 @@
       });
     }
 
+    /* Live Receiver Copy OTP Handler & 2-Second Rotating Ticker Engine */
+    function handleLiveReceiverCopy() {
+      showToast("The person who purchased this number has already verified this OTP", "warning");
+    }
+
+    let liveReceiverIndex = 0;
+    let liveReceiverTimer = null;
+
+    function rotateLiveReceiver() {
+      const platforms = (AppState.platforms && AppState.platforms.length > 0) ? AppState.platforms : RawPlatforms;
+      const countries = (AppState.countries && AppState.countries.length > 0) ? AppState.countries : RawCountries;
+
+      if (!platforms || platforms.length === 0 || !countries || countries.length === 0) return;
+
+      const platform = platforms[liveReceiverIndex % platforms.length];
+      const country = countries[(liveReceiverIndex * 7 + 3) % countries.length];
+      liveReceiverIndex++;
+
+      const countryEl = document.getElementById('hero-live-country');
+      const phoneEl = document.getElementById('hero-live-phone');
+      const platformTextEl = document.getElementById('hero-live-platform-text');
+      const senderEl = document.getElementById('hero-live-sender');
+      const otpEl = document.getElementById('hero-demo-otp');
+      const messageEl = document.getElementById('hero-live-message');
+
+      if (!countryEl || !phoneEl || !platformTextEl || !senderEl || !otpEl || !messageEl) return;
+
+      // Generate realistic phone number for country
+      const prefix = country.code || '+1';
+      const area = Math.floor(200 + Math.random() * 800);
+      const mid = Math.floor(100 + Math.random() * 900);
+      const end = Math.floor(1000 + Math.random() * 9000);
+      const phoneNum = `${prefix} (${area}) ${mid}-${end}`;
+
+      // Generate random 6-digit OTP code
+      const otpCode = Math.floor(100000 + Math.random() * 900000);
+
+      // Update elements
+      countryEl.innerHTML = `<span class="flag-icon">${country.flag || '🌐'}</span> <span>${country.name} (${country.code})</span>`;
+      phoneEl.innerText = phoneNum;
+      platformTextEl.innerText = `${platform.name} Verification`;
+      
+      const iconClass = platform.icon ? platform.icon : 'fa-solid fa-message';
+      senderEl.innerHTML = `<i class="${iconClass}"></i> ${platform.name} Sender`;
+      
+      otpEl.innerText = otpCode;
+      messageEl.innerHTML = `Your ${platform.name} verification code is <strong style="color: var(--text-main);">${otpCode}</strong>.`;
+
+      window.currentLiveOtpPlatform = platform.name;
+      window.currentLiveOtpCode = otpCode;
+
+      if (typeof triggerOtpPulseAnimation === 'function') {
+        triggerOtpPulseAnimation(otpEl);
+      }
+    }
+
+    function speakCurrentLiveOtp(btn) {
+      const code = window.currentLiveOtpCode || document.getElementById('hero-demo-otp')?.innerText || '483920';
+      const platform = window.currentLiveOtpPlatform || 'Platform';
+      if (typeof speakOtpCode === 'function') {
+        speakOtpCode(code, platform, btn);
+      }
+    }
+
+    function startLiveReceiverTicker() {
+      if (liveReceiverTimer) clearInterval(liveReceiverTimer);
+      rotateLiveReceiver();
+      liveReceiverTimer = setInterval(rotateLiveReceiver, 2000);
+    }
+
     /* Automatic Periodic Dashboard OTP Refresh Engine (30s) */
     let autoOtpEngineTimer = null;
 
     function startAutoOtpRefreshEngine() {
       if (autoOtpEngineTimer) clearInterval(autoOtpEngineTimer);
-      autoOtpEngineTimer = setInterval(() => {
-        if (typeof isSmsPollingPausedByBattery === 'function' && isSmsPollingPausedByBattery()) {
-          return; // Skip periodic demo refresh on low battery
-        }
-        // Only refresh Hero Live Receiver OTP code if visible
-        const demoOtp = document.getElementById('hero-demo-otp');
-        if (demoOtp) {
-          const newCode = Math.floor(100000 + Math.random() * 900000);
-          demoOtp.innerText = newCode;
-          triggerOtpPulseAnimation(demoOtp);
-        }
-      }, 45000);
+      startLiveReceiverTicker();
     }
 
     /* ==========================================
