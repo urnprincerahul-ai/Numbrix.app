@@ -10960,12 +10960,12 @@
 
         return `
           <div style="margin-bottom: 0.65rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; font-size: clamp(0.7rem, 3.2vw, 0.78rem); font-weight: 700; margin-bottom: 0.25rem; color: #ffffff; gap: 0.35rem; flex-wrap: nowrap;">
-              <span style="display: flex; align-items: center; gap: 0.35rem; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                <span style="font-size: 0.68rem; color: ${barColor}; background: rgba(0,0,0,0.3); padding: 0.1rem 0.35rem; border-radius: 4px; font-weight: 800; flex-shrink: 0;">${badgeText}</span>
-                <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${d.country} ${d.name}</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: clamp(0.68rem, 2.9vw, 0.76rem); font-weight: 700; margin-bottom: 0.25rem; color: #ffffff; gap: 0.35rem; flex-wrap: nowrap;">
+              <span style="display: flex; align-items: center; gap: 0.3rem; min-width: 0; flex: 1; white-space: nowrap; overflow: hidden;">
+                <span style="font-size: 0.65rem; color: ${barColor}; background: rgba(0,0,0,0.3); padding: 0.1rem 0.3rem; border-radius: 4px; font-weight: 800; flex-shrink: 0; white-space: nowrap;">${badgeText}</span>
+                <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: clamp(0.68rem, 2.8vw, 0.76rem);">${d.country} ${d.name}</span>
               </span>
-              <span style="font-family: var(--font-mono); color: #10b981; font-weight: 800; flex-shrink: 0; white-space: nowrap; font-size: 0.72rem;">₹${d.totalEarned.toFixed(2)} (${d.invites} invites)</span>
+              <span style="font-family: var(--font-mono); color: #10b981; font-weight: 800; flex-shrink: 0; white-space: nowrap; font-size: clamp(0.65rem, 2.7vw, 0.72rem);">₹${d.totalEarned.toFixed(2)} (${d.invites} invites)</span>
             </div>
             <div style="width: 100%; height: 10px; background: rgba(255, 255, 255, 0.08); border-radius: 5px; overflow: hidden; position: relative;">
               <div style="width: ${pct}%; height: 100%; background: ${barColor}; border-radius: 5px; transition: width 0.6s ease;"></div>
@@ -11350,16 +11350,16 @@
 
         <!-- Interactive Referral Monthly Earnings Estimator Slider Tool -->
         <div class="glass-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(16, 185, 129, 0.1) 50%, rgba(15, 23, 42, 0.95) 100%); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: var(--radius-md); padding: 1.25rem; margin-top: 1rem; width: 100%; box-sizing: border-box; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 0.75rem;">
-            <div style="min-width: 0; flex: 1;">
-              <h4 style="font-size: clamp(0.8rem, 3.5vw, 1.05rem); font-weight: 800; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 0.35rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                <i class="fa-solid fa-calculator" style="color: #f59e0b; font-size: 1rem; flex-shrink: 0;"></i> <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Estimated Monthly Earnings Calculator</span>
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 0.75rem;">
+            <div style="min-width: 0; flex: 1 1 200px;">
+              <h4 style="font-size: clamp(0.72rem, 3.2vw, 0.98rem); font-weight: 800; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 0.35rem; white-space: nowrap;">
+                <i class="fa-solid fa-calculator" style="color: #f59e0b; font-size: 0.95rem; flex-shrink: 0;"></i> <span style="white-space: nowrap;">Estimated Monthly Earnings Calculator</span>
               </h4>
-              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; margin-bottom: 0;">
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; margin-bottom: 0;">
                 Drag the sliders to estimate your potential passive cash income from successful referrals
               </p>
             </div>
-            <span id="ref-calc-bonus-badge" class="badge badge-success" style="font-size: 0.72rem; padding: 0.3rem 0.65rem; font-weight: 800; background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.35); flex-shrink: 0;">
+            <span id="ref-calc-bonus-badge" class="badge badge-success" style="font-size: 0.7rem; padding: 0.25rem 0.55rem; font-weight: 800; background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.35); flex-shrink: 0; white-space: nowrap;">
               <i class="fa-solid fa-shield" style="color: #4ade80;"></i> Standard 10% Tier
             </span>
           </div>
@@ -11423,12 +11423,12 @@
 
         <!-- Geographical Referral Distribution Map Card -->
         <div class="glass-card" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.85) 100%); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem; margin-top: 1rem; width: 100%; box-sizing: border-box; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);">
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.85rem;">
-            <div style="min-width: 0; flex: 1;">
-              <h4 style="font-size: clamp(0.82rem, 3.6vw, 1.05rem); font-weight: 800; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 0.45rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                <i class="fa-solid fa-earth-americas" style="color: #38bdf8; font-size: 1.05rem; flex-shrink: 0;"></i> <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Geographical Referral Distribution Map</span>
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.85rem;">
+            <div style="min-width: 0; flex: 1 1 200px;">
+              <h4 style="font-size: clamp(0.72rem, 3.2vw, 0.98rem); font-weight: 800; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 0.35rem; white-space: nowrap;">
+                <i class="fa-solid fa-earth-americas" style="color: #38bdf8; font-size: 0.95rem; flex-shrink: 0;"></i> <span style="white-space: nowrap;">Geographical Referral Distribution Map</span>
               </h4>
-              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; margin-bottom: 0;">
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; margin-bottom: 0;">
                 Interactive D3.js global map visualizing user referral locations, active nodes, and regional revenue share
               </p>
             </div>
@@ -11583,20 +11583,20 @@
 
           <!-- Top Referrers Community Bar Chart -->
           <div style="background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 1.1rem; margin-bottom: 1.25rem; width: 100%; box-sizing: border-box;">
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.85rem;">
-              <div style="min-width: 0; flex: 1;">
-                <h5 style="font-size: clamp(0.8rem, 3.5vw, 0.95rem); font-weight: 800; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 0.35rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                  <i class="fa-solid fa-chart-column" style="color: #f59e0b; font-size: 0.95rem; flex-shrink: 0;"></i> <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Top Community Earnings Bar Chart</span>
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.85rem;">
+              <div style="min-width: 0; flex: 1 1 200px;">
+                <h5 style="font-size: clamp(0.72rem, 3.2vw, 0.95rem); font-weight: 800; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 0.35rem; white-space: nowrap;">
+                  <i class="fa-solid fa-chart-column" style="color: #f59e0b; font-size: 0.92rem; flex-shrink: 0;"></i> <span style="white-space: nowrap;">Top Community Earnings Bar Chart</span>
                 </h5>
                 <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; margin-bottom: 0;">
                   Cash rewards distributed to top performing community members
                 </p>
               </div>
               <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; flex-shrink: 0;">
-                <button class="btn btn-warning btn-sm" onclick="openTopReferrersModal()" style="font-size: 0.72rem; padding: 0.22rem 0.6rem; font-weight: 800; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border: none; color: white;">
+                <button class="btn btn-warning btn-sm" onclick="openTopReferrersModal()" style="font-size: 0.7rem; padding: 0.2rem 0.55rem; font-weight: 800; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border: none; color: white;">
                   <i class="fa-solid fa-trophy"></i> Top 10 Hall of Fame
                 </button>
-                <span class="badge badge-warning" style="font-size: 0.68rem; padding: 0.2rem 0.55rem; font-weight: 700; background: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.35);">
+                <span class="badge badge-warning" style="font-size: 0.65rem; padding: 0.18rem 0.5rem; font-weight: 700; background: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.35); white-space: nowrap;">
                   <i class="fa-solid fa-ranking-star" style="font-size: 0.65rem;"></i> Top Performers
                 </span>
               </div>
