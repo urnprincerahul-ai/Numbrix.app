@@ -1,0 +1,6 @@
+{
+  "name": "Numbrix.app",
+  "description": "Premium Virtual Number & SMS Platform for instant OTP verification across 100+ countries and 100+ services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

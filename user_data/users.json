@@ -1,0 +1,20 @@
+[
+  {
+    "id": "usr_seed_1001",
+    "fullName": "Prince Rahul",
+    "email": "urn.princerahul@gmail.com",
+    "phone": "+91 7679528352",
+    "passwordHash": "e10adc3949ba59abbe56e057f20f883e",
+    "profilePicture": "assets/default_avatar.png",
+    "ipAddress": "157.38.192.44",
+    "location": "Kolkata, West Bengal, India (Asia/Kolkata)",
+    "createdAt": "2026-08-12T02:00:00.000Z",
+    "lastLoginAt": "2026-08-12T02:10:00.000Z",
+    "walletBalance": 50.0,
+    "claimedWelcomeBonus": true,
+    "role": "VIP User",
+    "status": "ACTIVE",
+    "failedLoginAttempts": 0,
+    "lockoutUntil": 0
+  }
+]
