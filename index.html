@@ -7040,7 +7040,7 @@
               <span>Avg Latency: <strong>1.8s</strong></span>
             </div>
 
-            <a href="https://t.me/NumbrixSupport" target="_blank" rel="noopener" style="text-decoration: none;" class="footer-pill-btn">
+            <a href="https://t.me/VNumberixapp_bot" target="_blank" rel="noopener" style="text-decoration: none;" class="footer-pill-btn">
               <i class="fa-brands fa-telegram" style="color: #229ED9;"></i> Telegram Live Agent
             </a>
           </div>
@@ -7184,7 +7184,7 @@
             <i class="fa-solid fa-chevron-down footer-col-toggle-icon"></i>
           </h4>
           <ul class="footer-links">
-            <li><a href="https://t.me/NumbrixSupport" target="_blank" rel="noopener"><i class="fa-brands fa-telegram" style="color:#38bdf8;"></i> 24/7 Telegram Support</a></li>
+            <li><a href="https://t.me/VNumberixapp_bot" target="_blank" rel="noopener"><i class="fa-brands fa-telegram" style="color:#38bdf8;"></i> 24/7 Telegram Support</a></li>
             <li><a href="javascript:void(0)" onclick="copyFooterEmail()"><i class="fa-solid fa-envelope" style="color:var(--accent);"></i> support@numbrix.app</a></li>
             <li><a href="javascript:void(0)" onclick="footerShowPolicyModal('Terms of Service', 'TermsContent')"><i class="fa-solid fa-file-contract"></i> Terms of Service</a></li>
             <li><a href="javascript:void(0)" onclick="footerShowPolicyModal('Privacy Policy', 'PrivacyContent')"><i class="fa-solid fa-user-lock"></i> Privacy Policy</a></li>
@@ -7228,7 +7228,7 @@
         </div>
 
         <div class="footer-social-links">
-          <a href="https://t.me/NumbrixSupport" target="_blank" rel="noopener" class="social-btn tg" title="Telegram Community">
+          <a href="https://t.me/VNumberixapp_bot" target="_blank" rel="noopener" class="social-btn tg" title="Telegram Bot & 24/7 Support">
             <i class="fa-brands fa-telegram"></i>
           </a>
           <a href="javascript:void(0)" onclick="copyFooterEmail()" class="social-btn mail" title="Copy Support Email">
@@ -7293,9 +7293,9 @@
 
 
   <!-- Floating Help Action Button -->
-  <div class="floating-fab" id="help-fab" title="Need Help? Chat Support">
+  <a href="https://t.me/VNumberixapp_bot" target="_blank" rel="noopener" class="floating-fab" id="help-fab" title="Need Help? 24/7 Telegram Support Bot" style="text-decoration: none;">
     <i class="fa-solid fa-headset"></i>
-  </div>
+  </a>
 
   <!-- ==========================================
        MODALS SETUP
@@ -20599,6 +20599,11 @@
 
       // Theme Switcher with Smooth Cross-Fade
       document.getElementById('theme-toggle-btn')?.addEventListener('click', toggleThemeWithCrossFade);
+
+      // 24/7 Telegram Support Bot Floating FAB
+      document.getElementById('help-fab')?.addEventListener('click', (e) => {
+        window.open('https://t.me/VNumberixapp_bot', '_blank');
+      });
 
       // Setup Live Navigation Scroll Spy
       initScrollSpy();

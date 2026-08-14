@@ -239,8 +239,21 @@ fun VirtualNumberWebView(
             }
           }
 
+          override fun shouldOverrideUrlLoading(view: WebView?, request: android.webkit.WebResourceRequest?): Boolean {
+            val uri = request?.url ?: return false
+            return handleUrl(uri.toString())
+          }
+
+          @Deprecated("Deprecated in Java")
           override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-            if (url != null && (url.startsWith("upi://") || url.startsWith("https://t.me/"))) {
+            if (url != null) {
+              return handleUrl(url)
+            }
+            return false
+          }
+
+          private fun handleUrl(url: String): Boolean {
+            if (url.startsWith("upi://") || url.startsWith("https://t.me/") || url.startsWith("http://t.me/") || url.startsWith("tg://") || url.startsWith("mailto:")) {
               try {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 context.startActivity(intent)
