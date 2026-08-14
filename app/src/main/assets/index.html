@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Numbrix.app - Premium Virtual Number & SMS Platform</title>
+  <title>VNumbrix.app - Premium Virtual Number & SMS Platform</title>
   <meta name="description" content="Buy virtual phone numbers instantly for Telegram, WhatsApp, Google, OpenAI and 200+ platforms across 100+ countries with instant OTP verification.">
   <meta name="keywords" content="virtual number, receive sms online, temp phone number, otp verification, online sim, virtual sms">
   <meta name="theme-color" content="#0F172A">
 
   <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="Numbrix.app - Premium Virtual Number & SMS Platform">
+  <meta property="og:title" content="VNumbrix.app - Premium Virtual Number & SMS Platform">
   <meta property="og:description" content="Instant OTP verification with virtual numbers in 100+ countries for WhatsApp, Telegram, OpenAI & more.">
   <meta property="og:type" content="website">
 
@@ -5861,7 +5861,7 @@
     <div class="loading-logo-box">
       <i class="fa-solid fa-sim-card"></i>
     </div>
-    <h2 style="margin-top: 1.25rem; font-weight: 800; letter-spacing: -0.5px; color: #F8FAFC;">Numbrix.app</h2>
+    <h2 style="margin-top: 1.25rem; font-weight: 800; letter-spacing: -0.5px; color: #F8FAFC;">VNumbrix.app</h2>
     <p style="color: #94A3B8; font-size: 0.9rem; margin-top: 0.35rem; font-weight: 500;" id="loading-status">Initializing Platform Assets...</p>
     <div class="loading-bar">
       <div class="loading-bar-fill" id="loading-fill"></div>
@@ -5901,7 +5901,7 @@
         <div class="logo-icon">
           <i class="fa-solid fa-sim-card"></i>
         </div>
-        <span class="logo-title">Numbrix.app</span>
+        <span class="logo-title">VNumbrix.app</span>
       </a>
 
       <ul class="nav-menu">
@@ -5953,7 +5953,7 @@
     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
       <div class="logo">
         <div class="logo-icon"><i class="fa-solid fa-sim-card"></i></div>
-        <span>Numbrix.app</span>
+        <span>VNumbrix.app</span>
       </div>
       <button class="btn btn-secondary btn-icon" id="close-sidebar-btn"><i class="fa-solid fa-xmark"></i></button>
     </div>
@@ -6956,7 +6956,7 @@
                 <i class="fa-solid fa-chevron-down"></i>
               </div>
               <div class="faq-answer">
-                Simply register or sign in to your Numbrix.app account. If you joined using a referral code, the ₹50 welcome bonus is automatically credited to your wallet balance upon registration!
+                Simply register or sign in to your VNumbrix.app account. If you joined using a referral code, the ₹50 welcome bonus is automatically credited to your wallet balance upon registration!
               </div>
             </div>
 
@@ -7027,7 +7027,7 @@
         <div class="footer-brand-info">
           <div class="logo">
             <div class="logo-icon"><i class="fa-solid fa-sim-card"></i></div>
-            <span>Numbrix.app</span>
+            <span>VNumbrix.app</span>
           </div>
           <p class="footer-brand-desc">
             Next-Generation SaaS Virtual SIM Telecom Engine & Real-Time Automated OTP Verification Infrastructure. Empowering instant activations across 200+ services & 120+ global carrier networks.
@@ -8063,7 +8063,7 @@
         </div>
         <div>
           <h3 id="policy-modal-title" style="font-size: 1.2rem; font-weight: 800; margin: 0; color: var(--text-main);">Terms & Policy</h3>
-          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Numbrix.app Trust & Security Framework</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">VNumbrix.app Trust & Security Framework</span>
         </div>
       </div>
 
@@ -11921,18 +11921,18 @@
     function shareReferral(platform) {
       const baseUrl = getReferralBaseUrl();
       const fullLink = `${baseUrl}?ref=${AppState.referralCode}`;
-      const msg = `Hey! Join Numbrix.app using my link & get instant virtual numbers for WhatsApp, Telegram, Google & 200+ services: ${fullLink}`;
+      const msg = `Hey! Join VNumbrix.app using my link & get instant virtual numbers for WhatsApp, Telegram, Google & 200+ services: ${fullLink}`;
 
       if (platform === 'whatsapp') {
         window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
       } else if (platform === 'telegram') {
-        window.open(`https://t.me/share/url?url=${encodeURIComponent(fullLink)}&text=${encodeURIComponent('Join Numbrix.app for instant OTP verification!')}`, '_blank');
+        window.open(`https://t.me/share/url?url=${encodeURIComponent(fullLink)}&text=${encodeURIComponent('Join VNumbrix.app for instant OTP verification!')}`, '_blank');
       } else if (platform === 'x') {
         window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(msg)}`, '_blank');
       } else if (platform === 'native') {
         if (navigator.share) {
           navigator.share({
-            title: 'Numbrix.app - Earn 10% Referral Credits',
+            title: 'VNumbrix.app - Earn 10% Referral Credits',
             text: msg,
             url: fullLink
           }).then(() => {
@@ -14570,7 +14570,7 @@
       AppState.registeredUsers.push(newUser);
       SafeStorage.setItem('vnh_registered_users', JSON.stringify(AppState.registeredUsers));
 
-      loginUser(email || 'user@numbrix.app', name, phone, newUser);
+      loginUser(email || 'user@vnumbrix.app', name, phone, newUser);
 
       if (enteredRefCode) {
         // Referrer reward
@@ -14609,7 +14609,7 @@
       } else if (!AppState.currentUser.name || AppState.currentUser.name === 'Alex Rivers') {
         AppState.currentUser.name = cleanName || 'User Account';
       }
-      AppState.currentUser.email = email || AppState.currentUser.email || 'user@numbrix.app';
+      AppState.currentUser.email = email || AppState.currentUser.email || 'user@vnumbrix.app';
       if (phone) AppState.currentUser.phone = phone;
       if (!AppState.currentUser.tier) AppState.currentUser.tier = 'Pro VIP';
 
@@ -18211,7 +18211,7 @@
         viewfinder.classList.add('candidate-detected', 'qr-detected', 'scan-success');
       }
       setTimeout(() => {
-        const dummyPayload = `upi://pay?pa=urn.princerahul-1@oksbi&pn=NumbrixApp&tr=TR${Math.floor(100000 + Math.random()*900000)}`;
+        const dummyPayload = `upi://pay?pa=urn.princerahul-1@oksbi&pn=VNumbrixApp&tr=TR${Math.floor(100000 + Math.random()*900000)}`;
         handleSuccessfulQrScan(dummyPayload, 'Auto-Scan Test');
       }, 400);
     }
@@ -20748,7 +20748,7 @@
       const input = document.getElementById('footer-newsletter-email');
       const email = input ? input.value.trim() : '';
       if (!email) return;
-      showToast('🎉 Thank you! You have subscribed to Numbrix.app price drop & stock alerts.', 'success');
+      showToast('🎉 Thank you! You have subscribed to VNumbrix.app price drop & stock alerts.', 'success');
       if (input) input.value = '';
     }
 
@@ -20756,7 +20756,7 @@
       let contentHtml = '';
       if (contentType === 'TermsContent') {
         contentHtml = `
-          <p style="margin-bottom: 0.8rem; font-weight: 700; color: var(--accent);">Numbrix.app Terms of Service</p>
+          <p style="margin-bottom: 0.8rem; font-weight: 700; color: var(--accent);">VNumbrix.app Terms of Service</p>
           <p style="margin-bottom: 0.8rem; line-height: 1.5;">By accessing or using our SaaS virtual SIM telecom engine, you agree to comply with our fair-use and automated activation guidelines:</p>
           <ul style="margin-left: 1.2rem; line-height: 1.6; color: var(--text-muted); font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem;">
             <li>Virtual SIM lines are dedicated strictly to SMS verification, testing, and individual privacy preservation.</li>
