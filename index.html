@@ -2688,45 +2688,180 @@
        ========================================== */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-top: 3rem;
+      margin-top: 2.5rem;
+      align-items: stretch;
     }
     .pricing-card {
-      padding: 1.75rem 1.35rem;
+      padding: 1.75rem 1.4rem;
       text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(145deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.98) 100%);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-xl);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       position: relative;
       overflow: hidden;
-      transition: var(--transition);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
     }
     .pricing-card-header {
-      padding-bottom: 0.85rem;
+      padding-bottom: 0.9rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .pricing-card-header h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text-main);
+      margin: 0.2rem 0 0 0;
+    }
+    .pricing-card-header p {
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      margin-top: 0.25rem;
+      line-height: 1.4;
     }
     .pricing-box-content {
       background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.07);
       border-radius: var(--radius-md);
-      padding: 1.15rem 1rem;
+      padding: 1.15rem 1.1rem;
       margin: 1.1rem 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
     .pricing-card.popular {
-      border-color: rgba(59, 130, 246, 0.65);
-      box-shadow: 0 0 25px rgba(96, 165, 250, 0.25);
+      border: 1.5px solid rgba(59, 130, 246, 0.7);
+      box-shadow: 0 10px 35px rgba(37, 99, 235, 0.28);
+      background: linear-gradient(145deg, rgba(30, 58, 138, 0.28) 0%, rgba(15, 23, 42, 0.98) 100%);
       transform: scale(1.02);
     }
+    .pricing-card.popular:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 18px 45px rgba(37, 99, 235, 0.38);
+    }
+    .price-row-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
+      margin: 0.15rem 0 0.85rem 0;
+    }
     .price-val {
-      font-size: 2.2rem;
+      font-size: 2.35rem;
       font-weight: 900;
-      margin: 0.25rem 0;
+      line-height: 1;
+      letter-spacing: -1px;
       color: var(--text-main);
+    }
+    .price-period {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .plan-highlight-tag {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.4rem 0.65rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.35;
+    }
+    .pricing-feature-list {
+      list-style: none;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .pricing-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .pricing-feature-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .pricing-trust-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2.25rem;
+      padding: 1.25rem 1.5rem;
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+    }
+    .pricing-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .pricing-trust-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .pricing-trust-text h4 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+    }
+    .pricing-trust-text p {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin: 0.15rem 0 0 0;
+    }
+
+    /* Light Theme Styling for Pricing */
+    [data-theme="light"] .pricing-card {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.1);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+    }
+    [data-theme="light"] .pricing-card.popular {
+      background: #f8faff;
+      border-color: rgba(37, 99, 235, 0.4);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+    }
+    [data-theme="light"] .pricing-box-content {
+      background: #f8fafc;
+      border-color: rgba(15, 23, 42, 0.08);
+    }
+    [data-theme="light"] .pricing-trust-bar {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.08);
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
     }
 
     /* FAQ Section & Category Filters */
@@ -4455,14 +4590,12 @@
         box-sizing: border-box;
       }
       .pricing-card {
-        padding: 1.35rem 1.15rem !important;
+        padding: 1.4rem 1.15rem !important;
         width: 100%;
         box-sizing: border-box;
         transform: none !important;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
-        border: 1px solid rgba(59, 130, 246, 0.35) !important;
         border-radius: var(--radius-xl) !important;
-        background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%) !important;
       }
       .pricing-card-header {
         padding-bottom: 0.75rem !important;
@@ -4471,13 +4604,19 @@
         background: rgba(0, 0, 0, 0.3) !important;
         border: 1px solid rgba(255, 255, 255, 0.08) !important;
         border-radius: var(--radius-md) !important;
-        padding: 0.9rem 0.85rem !important;
+        padding: 0.95rem 0.85rem !important;
         margin: 0.85rem 0 !important;
       }
       .pricing-card.popular {
         transform: none !important;
-        border-color: rgba(59, 130, 246, 0.7) !important;
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3) !important;
+        border: 1.5px solid rgba(59, 130, 246, 0.8) !important;
+        box-shadow: 0 0 25px rgba(59, 130, 246, 0.3) !important;
+      }
+      .pricing-trust-bar {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.85rem !important;
+        padding: 1rem 0.9rem !important;
+        margin-top: 1.5rem !important;
       }
 
       /* FAQ Mobile Refinements */
@@ -6659,107 +6798,198 @@
     </section>
 
     <!-- PRICING SECTION -->
-    <section class="container" style="padding: 5rem 0;" id="pricing">
+    <section class="container" style="padding: 4.5rem 0;" id="pricing">
       <div class="section-header">
-        <span class="section-subtitle">Transparent Rates</span>
+        <span class="section-subtitle"><i class="fa-solid fa-layer-group" style="color: var(--accent);"></i> Transparent Rates</span>
         <h2 class="section-title">Flexible Virtual Plans</h2>
-        <p class="section-desc">Choose between single-use temporary numbers or long-term dedicated rentals.</p>
+        <p class="section-desc">Choose between instant single-use OTP verification, 24-hour multi-service rentals, or dedicated 7-day VIP suites with instant carrier delivery.</p>
       </div>
 
       <div class="pricing-grid">
+        <!-- Temporary Plan -->
         <div class="glass-card pricing-card">
           <div class="pricing-card-header">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
-              <span class="badge badge-secondary" style="font-size: 0.7rem; font-weight: 700;"><i class="fa-solid fa-bolt" style="color: var(--accent);"></i> SINGLE USE</span>
-              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">5 Min Timer</span>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem;">
+              <span class="badge" style="font-size: 0.7rem; font-weight: 800; background: rgba(56, 189, 248, 0.16); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35);"><i class="fa-solid fa-bolt"></i> SINGLE USE</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;"><i class="fa-regular fa-clock"></i> 5–15 Min Window</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main);">Temporary Number</h3>
-            <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.25rem;">Ideal for instant single OTP verification</p>
+            <h3>Temporary Number</h3>
+            <p>Fast one-time OTP verification for any single app or platform</p>
           </div>
 
           <div class="pricing-box-content">
-            <div class="price-val" style="margin: 0.25rem 0 0.85rem 0; font-size: 2.2rem; font-weight: 900; color: var(--text-main);">₹149</div>
-            <ul class="pricing-feature-list" style="list-style: none; text-align: left; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;"><span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); color: #22c55e; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-check"></i></span> <span>5-Minute Line Validity</span></li>
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;"><span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); color: #22c55e; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-check"></i></span> <span>Single Service Lock</span></li>
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;"><span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); color: #22c55e; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-check"></i></span> <span>100% Refund if no SMS</span></li>
+            <div class="price-row-wrap">
+              <div class="price-val">₹149</div>
+              <div class="price-period">/ single use</div>
+            </div>
+            <div class="plan-highlight-tag" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8;">
+              <i class="fa-solid fa-gauge-high"></i> Instant 5-Second Delivery Guarantee
+            </div>
+            <ul class="pricing-feature-list">
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(56, 189, 248, 0.18); color: #38bdf8;"><i class="fa-solid fa-layer-group"></i></span>
+                <span>100+ Global Apps & Platforms (WhatsApp, TG, Google)</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(34, 197, 94, 0.18); color: #4ade80;"><i class="fa-solid fa-stopwatch"></i></span>
+                <span>5–15 Min Active Live SMS Receiver Window</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(59, 130, 246, 0.18); color: #60a5fa;"><i class="fa-solid fa-signal"></i></span>
+                <span>Direct Tier-1 Telecom SIM Routing (No Queue)</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(34, 197, 94, 0.18); color: #4ade80;"><i class="fa-solid fa-rotate-left"></i></span>
+                <span>100% Instant Auto-Refund if No SMS Arrives</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(168, 85, 247, 0.18); color: #c084fc;"><i class="fa-solid fa-shield-halved"></i></span>
+                <span>Fresh Private Non-Shared Telecom Line</span>
+              </li>
             </ul>
           </div>
 
-          <button class="btn btn-secondary" onclick="openPlanPurchaseModal('temporary')" style="width: 100%; font-weight: 700;">Rent Temporary</button>
+          <button class="btn btn-secondary" onclick="openPlanPurchaseModal('temporary')" style="width: 100%; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 0.5rem;"><i class="fa-solid fa-bolt"></i> Rent Temporary (₹149)</button>
         </div>
 
-        <div class="glass-card pricing-card popular" style="border: 1px solid rgba(59, 130, 246, 0.65); box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);">
+        <!-- 24-Hour Rental Plan -->
+        <div class="glass-card pricing-card popular">
           <div class="pricing-card-header">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
-              <span class="badge badge-primary" style="font-size: 0.7rem; font-weight: 800; background: var(--accent); color: white;"><i class="fa-solid fa-crown"></i> BEST VALUE</span>
-              <span style="font-size: 0.72rem; color: #60a5fa; font-weight: 700;">24H Pass</span>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem;">
+              <span class="badge badge-primary" style="font-size: 0.7rem; font-weight: 800; background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%); color: #ffffff; box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);"><i class="fa-solid fa-crown"></i> BEST VALUE</span>
+              <span style="font-size: 0.72rem; color: #60a5fa; font-weight: 700;"><i class="fa-regular fa-clock"></i> 24H Pass</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main);">Rental Number</h3>
-            <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.25rem;">24 Hours multi-code rental line</p>
+            <h3 style="color: #60a5fa;">Rental Number</h3>
+            <p>Receive unlimited OTP codes for multiple services on one line</p>
           </div>
 
           <div class="pricing-box-content">
-            <div class="price-val" style="margin: 0.25rem 0 0.85rem 0; font-size: 2.2rem; font-weight: 900; color: var(--accent);">₹189</div>
-            <ul class="pricing-feature-list" style="list-style: none; text-align: left; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;"><span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); color: #22c55e; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-check"></i></span> <span>24-Hour Active Line</span></li>
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;"><span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); color: #22c55e; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-check"></i></span> <span>Unlimited SMS Codes</span></li>
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;"><span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); color: #22c55e; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-check"></i></span> <span>Priority Routing Speed</span></li>
+            <div class="price-row-wrap">
+              <div class="price-val" style="color: #60a5fa;">₹189</div>
+              <div class="price-period" style="color: #93c5fd;">/ 24 hours</div>
+            </div>
+            <div class="plan-highlight-tag" style="background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(59, 130, 246, 0.35); color: #60a5fa;">
+              <i class="fa-solid fa-infinity"></i> Unlimited Multi-Platform Codes
+            </div>
+            <ul class="pricing-feature-list">
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(59, 130, 246, 0.22); color: #60a5fa;"><i class="fa-solid fa-clock"></i></span>
+                <span>24 Hours Full Active Line Retention Window</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(56, 189, 248, 0.22); color: #38bdf8;"><i class="fa-solid fa-comments"></i></span>
+                <span>Unlimited SMS Codes & Multi-Reverifications</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(34, 197, 94, 0.22); color: #4ade80;"><i class="fa-solid fa-cubes"></i></span>
+                <span>Multi-Service & Multi-App Support (200+ Portals)</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(245, 158, 11, 0.22); color: #fbbf24;"><i class="fa-solid fa-bolt-lightning"></i></span>
+                <span>Priority High-Speed SS7 Telecom Routing</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(168, 85, 247, 0.22); color: #c084fc;"><i class="fa-solid fa-terminal"></i></span>
+                <span>Real-Time Live Webhook & Terminal Feed</span>
+              </li>
             </ul>
           </div>
 
-          <button class="btn btn-primary" onclick="openPlanPurchaseModal('rental')" style="width: 100%; font-weight: 800;">Get Rental Line</button>
+          <button class="btn btn-primary" onclick="openPlanPurchaseModal('rental')" style="width: 100%; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);"><i class="fa-solid fa-arrow-right"></i> Get Rental Line (₹189)</button>
         </div>
 
+        <!-- 7-Day Dedicated Premium VIP Plan -->
         <div class="glass-card pricing-card premium-pulse" id="premium-pricing-card">
           <div class="pricing-card-header">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.35rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; flex-wrap: wrap; gap: 0.35rem;">
               <div style="display: flex; align-items: center; gap: 0.4rem;">
-                <span class="badge badge-warning" style="font-size: 0.7rem; font-weight: 700; background: rgba(245, 158, 11, 0.2); color: #f59e0b;"><i class="fa-solid fa-gem"></i> PRO DEDICATED</span>
+                <span class="badge badge-warning" style="font-size: 0.7rem; font-weight: 800; background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.4);"><i class="fa-solid fa-gem"></i> PRO DEDICATED</span>
                 <span id="premium-vip-status-badge" style="display: none; font-size: 0.68rem; font-weight: 900; background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); color: #000; padding: 0.18rem 0.55rem; border-radius: 20px; box-shadow: 0 0 12px rgba(245, 158, 11, 0.6); letter-spacing: 0.5px; align-items: center; gap: 0.25rem;"><i class="fa-solid fa-crown" style="color: #000;"></i> VIP ACTIVE</span>
               </div>
-              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">7 Days Pass</span>
+              <span style="font-size: 0.72rem; color: #fbbf24; font-weight: 700;"><i class="fa-regular fa-clock"></i> 7 Days Pass</span>
             </div>
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.35rem;">
-              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin: 0;">Premium Number</h3>
+              <h3 style="color: #f59e0b; margin: 0;">Premium Number</h3>
               <span id="premium-vip-gold-crown-badge" style="display: none; font-size: 0.72rem; font-weight: 800; color: #f59e0b; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.15rem 0.5rem; border-radius: 12px; align-items: center; gap: 0.3rem; box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);">
                 <i class="fa-solid fa-crown" style="color: #f59e0b;"></i> VIP MEMBER
               </span>
             </div>
-            <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.25rem;">7-Day dedicated private line</p>
+            <p>Private dedicated line with VIP referral earnings unlock</p>
           </div>
 
           <div class="pricing-box-content">
-            <div class="price-val" style="margin: 0.25rem 0 0.85rem 0; font-size: 2.2rem; font-weight: 900; color: #f59e0b;">₹999</div>
-            <ul class="pricing-feature-list" style="list-style: none; text-align: left; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.65rem;">
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: #f59e0b; font-weight: 700; background: rgba(245, 158, 11, 0.14); padding: 0.45rem 0.6rem; border-radius: var(--radius-sm); border: 1px dashed rgba(245, 158, 11, 0.45);">
-                <span class="pricing-check" style="width: 22px; height: 22px; border-radius: 50%; background: rgba(245, 158, 11, 0.25); color: #f59e0b; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0;"><i class="fa-solid fa-unlock"></i></span>
-                <span>Unlocks Referral Earning Claims & Wallet Withdrawals</span>
+            <div class="price-row-wrap">
+              <div class="price-val" style="color: #f59e0b;">₹999</div>
+              <div class="price-period" style="color: #fbbf24;">/ 7 days</div>
+            </div>
+            <div class="plan-highlight-tag" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(217, 119, 6, 0.12) 100%); border: 1px dashed rgba(245, 158, 11, 0.45); color: #f59e0b; font-weight: 700;">
+              <i class="fa-solid fa-unlock"></i> Unlocks Referral Claims & Withdrawals
+            </div>
+            <ul class="pricing-feature-list">
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(245, 158, 11, 0.25); color: #f59e0b;"><i class="fa-solid fa-crown"></i></span>
+                <span>Exclusive Access to 100+ Premium Line Pools</span>
               </li>
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;">
-                <span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(168, 85, 247, 0.2); color: #c084fc; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-layer-group"></i></span>
-                <span>Exclusive Access to Premium Number Pools (100+ Lines)</span>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(168, 85, 247, 0.22); color: #c084fc;"><i class="fa-solid fa-sim-card"></i></span>
+                <span>7 Days Dedicated Private SIM Line (Never Shared)</span>
               </li>
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;">
-                <span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(59, 130, 246, 0.2); color: #60a5fa; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-headset"></i></span>
-                <span>24/7 Extended VIP Support Priority & Help Desk</span>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(34, 197, 94, 0.22); color: #4ade80;"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                <span>Unlocks 10% Referral Cash Claim Rights to Wallet</span>
               </li>
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;">
-                <span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(34, 197, 94, 0.18); color: #4ade80; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-clock"></i></span>
-                <span>7 Days Dedicated Private Line & Multi-Reverification</span>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(59, 130, 246, 0.22); color: #60a5fa;"><i class="fa-solid fa-headset"></i></span>
+                <span>24/7 Priority Dedicated VIP Help Desk & Agent</span>
               </li>
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;">
-                <span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(34, 197, 94, 0.18); color: #4ade80; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-cubes"></i></span>
-                <span>Multi-Platform Access (All Service Apps & Websites)</span>
-              </li>
-              <li style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; color: var(--text-main); font-weight: 600;">
-                <span class="pricing-check" style="width: 20px; height: 20px; border-radius: 50%; background: rgba(34, 197, 94, 0.18); color: #4ade80; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"><i class="fa-solid fa-shield-halved"></i></span>
-                <span>Free Instant Number Replacement Guarantee</span>
+              <li class="pricing-feature-item">
+                <span class="pricing-feature-icon" style="background: rgba(34, 197, 94, 0.22); color: #4ade80;"><i class="fa-solid fa-shield-halved"></i></span>
+                <span>100% Free Instant Number Replacement Guarantee</span>
               </li>
             </ul>
           </div>
 
-          <button id="premium-select-plan-btn" class="btn btn-warning" onclick="openPlanPurchaseModal('premium')" style="width: 100%; font-weight: 800; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #000; border: none; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);">Select Premium (₹999)</button>
+          <button id="premium-select-plan-btn" class="btn btn-warning" onclick="openPlanPurchaseModal('premium')" style="width: 100%; font-weight: 800; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #000; border: none; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35); display: flex; align-items: center; justify-content: center; gap: 0.5rem;"><i class="fa-solid fa-crown"></i> Select Premium (₹999)</button>
+        </div>
+      </div>
+
+      <!-- Trust Assurance Strip -->
+      <div class="pricing-trust-bar">
+        <div class="pricing-trust-item">
+          <div class="pricing-trust-icon" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">
+            <i class="fa-solid fa-rotate-left"></i>
+          </div>
+          <div class="pricing-trust-text">
+            <h4>Auto Refund Guarantee</h4>
+            <p>100% wallet refund if no SMS arrives within timer</p>
+          </div>
+        </div>
+        <div class="pricing-trust-item">
+          <div class="pricing-trust-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div class="pricing-trust-text">
+            <h4>5-Sec Delivery</h4>
+            <p>Direct Tier-1 telecom routes with minimal latency</p>
+          </div>
+        </div>
+        <div class="pricing-trust-item">
+          <div class="pricing-trust-icon" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="pricing-trust-text">
+            <h4>100% Private Lines</h4>
+            <p>Real telecom carriers, zero public number recycling</p>
+          </div>
+        </div>
+        <div class="pricing-trust-item">
+          <div class="pricing-trust-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <div class="pricing-trust-text">
+            <h4>Instant UPI Activation</h4>
+            <p>Instant balance topup via GPay, PhonePe, Paytm</p>
+          </div>
         </div>
       </div>
     </section>
